@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Latihan</string>
+
+    <string name="hint">Write Someone who loves u!</string>
+    <string name="submit">Sent Love!</string>
+    <string name="title_detail">Detail Bosqu</string>
+</resources>
