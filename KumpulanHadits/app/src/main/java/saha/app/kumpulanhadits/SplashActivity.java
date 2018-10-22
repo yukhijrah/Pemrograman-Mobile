@@ -8,21 +8,32 @@ import android.support.v7.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
+    private static final int TIGA_DETIK = 3000;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        countDown();
 
-        new Handler().postDelayed(new Runnable() {
+    }
 
+    private void countDown(){
+        Handler handler = new Handler(); //untuk mendelay splash activity
 
+        Runnable menunggu = new Runnable() { //aksi setelah dia menunggu
             @Override
             public void run() {
-                // This method will be executed once the timer is over
-                Intent i = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(i);
-                finish();
+            gotoMain(); //method yang akan dipanggil setelah menunggu
             }
-        }, 5000);
+        };
+
+        handler.postDelayed(menunggu, TIGA_DETIK); //runnable + satuan waktu
+    }
+
+    private void gotoMain(){
+        Intent intentMain = new Intent(SplashActivity.this, MainActivity.class);
+        startActivity(intentMain);
+        finish();
     }
 }
